@@ -33,6 +33,12 @@ RUN add-apt-repository ppa:webupd8team/java  && \
 
 ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
 
+RUN \
+  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
+  echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list && \
+  apt-get update && \
+  apt-get install -y google-chrome-stable
+
 # Create user and add home-dir and github dir
 RUN useradd lnara002 && echo "lnara002:lnara002" | chpasswd && \
                         adduser lnara002 sudo && \
