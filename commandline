@@ -1,0 +1,1 @@
+docker run --name webstorm -e DISPLAY=$DISPLAY -u lnara002 -v /tmp/.X11-unix:/tmp/.X11-unix:ro -v /home/lnara002:/var/shared -t -i for-webstorm
